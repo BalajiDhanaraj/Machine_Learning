@@ -78,25 +78,38 @@ print(melbourne_model.predict(X.head(5)))
 print("------------------------------------------------------------")
 
 """" Prediction 2 """
+file_path2 = "/Volumes/Macintosh HD/For Mac/python project/Machine_Learning/csv-data set/train.csv"
 
-home_data.columns
+home_data2 = pd.read_csv(file_path2)
+
+home_data2.columns
 
 ## Y is called as prediction target
 
-y = home_data.SalePrice
+y2 = home_data2.SalePrice
 
 
 # Creating the list of feature ---> input data going to predict called feature
 
 feature_names = ['LotArea','YearBuilt','1stFlrSF','2ndFlrSF','FullBath','BedroomAbvGr','TotRmsAbvGrd']
 
-X = home_data[feature_names]
+X2 = home_data2[feature_names]
 
 ## x and y are created now, review data
 
 print(X.describe())
 
 print(X.head())
+
+## Fiting the model
+
+model = DTR(random_state=2)
+
+model.fit(X2,y2)
+
+predict_value = model.predict(X2)
+
+print(predict_value)
 
 
 
