@@ -44,6 +44,51 @@ X = melbourne_data[melbourne_feature] ### melbourne data have all data set so in
 
 print(X.describe())
 
+print(X.head())
+print(X.tail())
+print("------------------------------------------------------------")
+
+
+""" Building YOur Model 
+
+the step to building and using a model
+
+Define ---> what type of model will it be? A decision tree? some other type of model?
+           some other parameter of the model type are specifed too
+Fit -------> Capture patttern from provided data . This is the heart of modeling 
+              capture pattern mean divided the group of names like
+              finding the house price by no of rooms, no of toilet, no of living rooms,
+              size of the rooms, so capture pattern mean dividing the data into the valued groups to predict
+Predict ---> Just what is sounds like
+
+Evaluate ---> Determine how accurate the models prediction are
+"""
+
+from sklearn.tree import DecisionTreeRegressor as DTR
+# Define model. Specify a number for random_state to ensure same results each run
+melbourne_model = DTR(random_state=1)
+## Fiting the captured pattern
+melbourne_model.fit(X,y)
+### Next step to predict
+print("Making predictions for the following 5 house")
+print(X.head(5))
+print("The predictions are")
+print(melbourne_model.predict(X.head(5)))
+
+print("------------------------------------------------------------")
+
+"""" Prediction 2 """
+
+
+
+
+
+
+
+
+
+
+
 
 
 
