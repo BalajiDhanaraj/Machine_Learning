@@ -79,11 +79,24 @@ print("------------------------------------------------------------")
 
 """" Prediction 2 """
 
+home_data.columns
+
+## Y is called as prediction target
+
+y = home_data.SalePrice
 
 
+# Creating the list of feature ---> input data going to predict called feature
 
+feature_names = ['LotArea','YearBuilt','1stFlrSF','2ndFlrSF','FullBath','BedroomAbvGr','TotRmsAbvGrd']
 
+X = home_data[feature_names]
 
+## x and y are created now, review data
+
+print(X.describe())
+
+print(X.head())
 
 
 
