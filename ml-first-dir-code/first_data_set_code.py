@@ -117,8 +117,48 @@ print(predict_value)
 print("-------------------------------------------------------------")
 
 
-""" Model Validation  20/03/2022 sunday"""
+""" Model Validation  20/03/2022 sunday
 
+what is model validation -> 1- Use to measure the quality of your model measuring model quality is key to iteratively improving
+                            your models.
+                            2- evaluate almost every model you ever build ---> to measure the model quality is predictive accuracy
+
+The solution to this accuracy problem is find the " MEAN ABSOLUTE ERROR" (also caleed as MAE)
+
+Ex --> prediction of error
+        error = actual - predicted
+So this way we convert the each error into positive number
+      
+
+"""
+
+# Load data
+melbourne_file_path = '/Volumes/Macintosh HD/For Mac/python project/Machine_Learning/csv-data set/melb_data.csv'
+melbourne_data = pd.read_csv(melbourne_file_path)
+
+# Filter rows with missing price values
+
+filtered_melbourne_data = melbourne_data.dropna(axis=0)
+# Choose target and features
+
+y = filtered_melbourne_data.Price
+melbourne_features = ['Rooms', 'Bathroom', 'Landsize', 'BuildingArea',
+                        'YearBuilt', 'Lattitude', 'Longtitude']
+X = filtered_melbourne_data[melbourne_features]
+
+from sklearn.tree import DecisionTreeRegressor
+
+# Define model
+melbourne_model = DecisionTreeRegressor()
+# Fit model
+melbourne_model.fit(X, y)
+
+## we have import the mean absolute error
+
+from  sklearn.metrics import mean_absolute_error
+
+predicted_home_prices = melbourne_model.predict(X)
+mean_absolute_error(y,predicted_home_prices)
 
 
 
