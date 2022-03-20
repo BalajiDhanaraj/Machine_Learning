@@ -214,39 +214,39 @@ X3 = home_data3[feature_columns]
 
 ## define the model
 
-home_model = DTR
+home_model3= DTR(random_state=1)
 
 # fitting the model
 
-home_model.fit(X3,y3)
+home_model3.fit(X3,y3)
 
-print("First in-sample predictions:", home_model.predict(X.head()))
-print("Actual target values for those homes:", y.tail().tolist())
+print("First in-sample predictions:", home_model3.predict(X3.head()))
+print("Actual target values for those homes:", y3.tail().tolist())
 
 ## using the splitting data
-
-train_X, val_X, train_y, val_y = train_test_split(X3,y3,random_state=1)
+from sklearn.model_selection import train_test_split as tts
+train_X3, val_X3, train_y3, val_y3 = tts(X3,y3,random_state=1)
 
 ## again fitting the model
+from sklearn.tree import DecisionTreeRegressor as DTR3
+home_test_model3 = DTR3(random_state=1)
 
-home_test_model3 = DTR(random_state=1)
-
-home_test_model3(train_X,train_y)
+home_test_model3.fit(train_X3,train_y3)
 
 ## Make predictions with validation of data
 
-val_predictions_3 = home_test_model3.predict(val_X)
+val_predictions_3 = home_test_model3.predict(val_X3)
 
 print(val_predictions_3)
 
 # print the top few validation predictions
-print(home_test_model3.predict(X.head()))
+print(home_test_model3.predict(X3.head()))
 # print the top few actual prices from validation data
-print( y.tail().tolist())
+print( y3.tail().tolist())
 
 ## final to calculate the mean absolute error in validation data
 from  sklearn.metrics import mean_absolute_error as mbe
-val_mae = mbe(val_predictions_3,val_y)
+val_mae = mbe(val_predictions_3,val_y3)
 
 print(val_mae)
 
