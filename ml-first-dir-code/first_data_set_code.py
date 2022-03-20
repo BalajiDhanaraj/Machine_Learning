@@ -28,7 +28,9 @@ print(melbourne_data)
 y = melbourne_data.Price
 
 """Choosing "Features"
-The columns that are inputted into our model (and later used to make predictions) are called "features." In our case, those would be the columns used to determine the home price. Sometimes, you will use all columns except the target as features. Other times you'll be better off with fewer features.
+The columns that are inputted into our model (and later used to make predictions) are called "features." In our case, 
+those would be the columns used to determine the home price. 
+Sometimes, you will use all columns except the target as features. Other times you'll be better off with fewer features.
 
 For now, we'll build a model with only a few features. Later on you'll see how to iterate and compare models built with different features.
 
@@ -97,9 +99,9 @@ X2 = home_data2[feature_names]
 
 ## x and y are created now, review data
 
-print(X.describe())
+print(X2.describe())
 
-print(X.head())
+print(X2.head())
 
 ## Fiting the model
 
@@ -112,7 +114,10 @@ predict_value = model.predict(X2)
 print(predict_value)
 
 
+print("-------------------------------------------------------------")
 
+
+""" Model Validation  20/03/2022 sunday"""
 
 
 
