@@ -192,18 +192,63 @@ val_predictions = melbourne_model.predict(val_X)
 print(mean_absolute_error(val_y, val_predictions))
 
 
+"""" Prediction 3 -- Model validation """
 
+## path of file to read
 
+file_path3 = "/Volumes/Macintosh HD/For Mac/python project/Machine_Learning/csv-data set/train.csv"
 
+home_data3 = pd.read_csv(file_path3)
 
+## Y is called as prediction target
 
+y3 = home_data3.SalePrice
 
+## features -- input
 
+feature_columns=['LotArea', 'YearBuilt', '1stFlrSF', '2ndFlrSF', 'FullBath', 'BedroomAbvGr', 'TotRmsAbvGrd']
 
+home_data3.describe()
 
+X3 = home_data3[feature_columns]
 
+## define the model
 
+home_model = DTR
 
+# fitting the model
+
+home_model.fit(X3,y3)
+
+print("First in-sample predictions:", home_model.predict(X.head()))
+print("Actual target values for those homes:", y.tail().tolist())
+
+## using the splitting data
+
+train_X, val_X, train_y, val_y = train_test_split(X3,y3,random_state=1)
+
+## again fitting the model
+
+home_test_model3 = DTR(random_state=1)
+
+home_test_model3(train_X,train_y)
+
+## Make predictions with validation of data
+
+val_predictions_3 = home_test_model3.predict(val_X)
+
+print(val_predictions_3)
+
+# print the top few validation predictions
+print(home_test_model3.predict(X.head()))
+# print the top few actual prices from validation data
+print( y.tail().tolist())
+
+## final to calculate the mean absolute error in validation data
+from  sklearn.metrics import mean_absolute_error as mbe
+val_mae = mbe(val_predictions_3,val_y)
+
+print(val_mae)
 
 
 
