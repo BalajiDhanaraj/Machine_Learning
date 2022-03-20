@@ -160,7 +160,36 @@ from  sklearn.metrics import mean_absolute_error
 predicted_home_prices = melbourne_model.predict(X)
 mean_absolute_error(y,predicted_home_prices)
 
+""" The Problem with above Data accurate 
+we were used the trained data in our prediction so the data accurate is good
+but if we will be using the new data data to predicted the value, data accurate is bad ->
+        because we didn't trained the data ,
 
+So to solve this problem by --> removing the some of data from the model building process
+                                to predicted the more accurate results,
+                                This process is called as "Validation data";
+"""
+
+## Using the function ---> train_test_split to break up the data into two peices.
+##                         in this we will use some of that data as trainign data to fit the model
+##                         we will use other data as validation data to calcualte - mean_absolute_error
+
+
+from sklearn.model_selection import train_test_split
+
+# split data into training and validation data, for both features and target
+# The split is based on a random number generator. Supplying a numeric value to
+# the random_state argument guarantees we get the same split every time we
+# run this script.
+train_X, val_X, train_y, val_y = train_test_split(X, y, random_state = 0)
+# Define model
+melbourne_model = DecisionTreeRegressor()
+# Fit model
+melbourne_model.fit(train_X, train_y)
+
+# get predicted prices on validation data
+val_predictions = melbourne_model.predict(val_X)
+print(mean_absolute_error(val_y, val_predictions))
 
 
 
