@@ -251,7 +251,18 @@ val_mae = mbe(val_predictions_3,val_y3)
 print(val_mae)
 
 
+""" Underfitting and Overfitting Sunday 27/03/2020
+ 
+ Overfitting --->  This is a phenomenon called overfitting, where a model matches the training data almost perfectly, 
+                  but does poorly in validation and other new data. On the flip side, if we make our tree very shallow, 
+                  it doesn't divide up the houses into very distinct groups.
 
+
+ Underfitting --->  
+ 
+ 
+ 
+ """
 
 
 
