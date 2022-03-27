@@ -364,7 +364,7 @@ print("max",best_tree_size_max)
 best_tree_size_min = min(scores,key=scores.get)
 print("min",best_tree_size_min)
 
-
+print("-----------------------------------------------------------------------")
 
 
 
