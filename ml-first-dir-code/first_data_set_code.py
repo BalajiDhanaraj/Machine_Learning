@@ -285,9 +285,9 @@ melbourne_data4 = pd.read_csv(melbourne_file_path4)
 # Filter rows with missing values
 filtered_melbourne_data4 = melbourne_data4.dropna(axis=0)
 
-# Choose target and features
+# Choose target
 y4 = filtered_melbourne_data4.Price
-
+# and features.
 melbourne_features4 = ['Rooms', 'Bathroom', 'Landsize', 'BuildingArea',
                        'YearBuilt', 'Lattitude', 'Longtitude']
 
@@ -311,3 +311,76 @@ def get_mae(max_leaf_nodes4, train_X4, val_X4, train_y4, val_y4):
 for max_leaf_nodes4 in [5,50,500]:
     my_mae4 = get_mae(max_leaf_nodes4, train_X4, val_X4, train_y4, val_y4)
     print("Max leaf nodes: %d  \t\t Mean Absolute Error:  %d" % (max_leaf_nodes4, my_mae4))
+print("-----------------------------------------------------------------------")
+""" Prediction 5 in over and under fitting """
+
+
+file_path5 = "/Volumes/Macintosh HD/For Mac/python project/Machine_Learning/csv-data set/train.csv"
+
+home_data5 = pd.read_csv(file_path5)
+
+## creating the target y
+y5 = home_data5.Price
+
+## creating the feature input data
+feature5 = ['LotArea', 'YearBuilt', '1stFlrSF', '2ndFlrSF', 'FullBath', 'BedroomAbvGr', 'TotRmsAbvGrd']
+
+X5 = home_data5[feature5]
+
+## split the data into validating and training data
+
+train_X5,val_X5,train_y5,val_y5 = train_test_split(X5,y5,random_state=1)
+
+## specify the model
+
+DTR_model5 = DecisionTreeRegressor(random_state=1)
+
+## fitting the model
+
+DTR_model5.fit(train_X5,train_y5)
+
+## Make validation predictions and calculate mean absolute error
+
+val_predictions5 = DTR_model5.predict(val_X5)
+val_mea5 = mean_absolute_error(val_predictions5,val_y5)
+print("Validation MAE: {:,.0f}".format(val_mae))
+
+## this method is used to predict the more accurate results using max leaf nodes
+def get_mea5(max_leaf_nodes5, train_X5,val_X5,train_y5,val_y5):
+    model5 = DTR(max_leaf_nodes=max_leaf_nodes5,random_state=0)
+    model5.fit(train_X5,train_y5)
+    preds_val5 = model5.predict(val_X5)
+    mea5 = mean_absolute_error(val_y5,preds_val5)
+    return (mea5)
+
+# this var have the list of data to loop
+candidate_max_leaf_nodes5 = [5,2555,5055,12005,30000,50035434]
+
+data = scores = {leaf_size: get_mea5(leaf_size,train_X5, val_X5, train_y5, val_y5)
+                 for leaf_size in candidate_max_leaf_nodes5
+                 }
+best_tree_size_max = max(scores,key= data.get)
+print("max",best_tree_size_max)
+best_tree_size_min = min(scores,key=scores.get)
+print("min",best_tree_size_min)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
