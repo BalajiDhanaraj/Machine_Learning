@@ -108,11 +108,30 @@ print(review.loc[(review.country == 'Italy') & (review.points >= 90)])
 
 print(review.loc[review.country.isin(['Italy','France'])])
 
+""" isnull --->not null mean is empty (NaN """
+
+print(review.loc[review.price.isnull()])
+
+print(review.loc[review.price.notnull()])
+
+"""Assigning data """
+
+ass = review['critic'] = 'everyone'
+
+print(ass)
+
+## describe function is used to show the over all data.
+des = review.describe()
+print(des)
 
 
+cols = ['country', 'province', 'region_1', 'region_2']
+indices = [0, 1, 10, 100]
+df = review.loc[indices, cols]
 
+print(df)
 
+top_oceania_wines = review.loc[(review.country.isin(['Australia','New Zealand'])) & (review.points>=95)]
 
-
-
+print(top_oceania_wines)
 
