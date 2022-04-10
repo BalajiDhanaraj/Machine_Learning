@@ -58,9 +58,18 @@ review = pd.read_csv("/Volumes/Macintosh HD/For Mac/python project/Machine_Learn
 
 print(review.head(5))
 
-print(pd.set_option('max_rows',5))
+# print(pd.set_option('max_rows',5))
 
-##
+## Accessing the column using the name
+
+print(review['country'].head(5))
+
+## Accessing the data using the index [0]
+
+print(review['country'][1])
+
+
+
 
 
 
