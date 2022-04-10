@@ -83,7 +83,20 @@ print(review.iloc[0]) # row
 print(review.iloc[:,1])
 
 """ first index row and second index is column"""
-print(review.iloc[0:3,1])
+print(review.iloc[0:3,0:3])
+
+## using the negative numbers to retrived the data from the last
+
+print(review.iloc[-5:-10,:3])
+
+""" Label-based selection -->loc,  """
+
+print(review.loc[0,'country'])
+
+
+
+
+
 
 
 
