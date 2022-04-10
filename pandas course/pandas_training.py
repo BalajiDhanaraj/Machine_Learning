@@ -67,14 +67,23 @@ print(review['country'].head(5))
 ## Accessing the data using the index [0]
 
 print(review['country'][1])
+print("---------------------------------------------",end=" ")
+""" 
+Indexing in pandas
+accessing the data using pandas with method of --> loc and iloc,
+Both loc and iloc are row-first, column-second, but in python - column-first , row-seconds
+"""
 
+# Index - based selection #
 
+print(review.iloc[0]) # row
 
+# to display the column in iloc
 
+print(review.iloc[:,1])
 
-
-
-
+""" first index row and second index is column"""
+print(review.iloc[0:3,1])
 
 
 
