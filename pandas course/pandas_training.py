@@ -102,6 +102,15 @@ print(review.loc[0,'country'])
 
 print(review.country=='Italy')
 
+print(review.loc[(review.country == 'Italy') & (review.points >= 90)])
+
+## isin --- data is in a list of values,
+
+print(review.loc[review.country.isin(['Italy','France'])])
+
+
+
+
 
 
 
