@@ -38,22 +38,29 @@ print(
     )
 )
 
-## Series --> a series by contrast is a sequence of data value
+## Series --> a series by contrast is a sequence of data value --> its more like list
+## Dataframe is a table , and Series is a list
 
 print(pd.Series([1,3,2,3]))
 
 
+print(
+    pd.Series(
+        [3,4,5],
+        index=['2010 Sales','2016 Sales','2017 Sales'],
+        name='Product A'
+    )
+)
 
+## importing the csv data file
 
+review = pd.read_csv("/Volumes/Macintosh HD/For Mac/python project/Machine_Learning/csv-data set/winemag-data_first150k.csv")
 
+print(review.head(5))
 
+print(pd.set_option('max_rows',5))
 
-
-
-
-
-
-
+##
 
 
 
