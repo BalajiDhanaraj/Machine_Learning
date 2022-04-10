@@ -135,3 +135,22 @@ top_oceania_wines = review.loc[(review.country.isin(['Australia','New Zealand'])
 
 print(top_oceania_wines)
 
+
+""" Summary function and maps """
+
+# summary function
+#Pandas provides many simple "summary functions"
+# (not an official name) which restructure the data in some useful way.
+# For example, consider the describe() method:
+
+
+print(review.points.describe())
+
+
+
+
+
+
+
+
+
