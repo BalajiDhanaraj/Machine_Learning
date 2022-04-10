@@ -94,10 +94,13 @@ print(review.iloc[-5:-10,:3])
 print(review.loc[0,'country'])
 
 
+""" Manipulating the index -- index we use is not immutable, we can manipulate the index in any way we see fit"""
 
+# print(review.set_index("title"))
 
+## conditional selection
 
-
+print(review.country=='Italy')
 
 
 
