@@ -24,6 +24,28 @@ print(pd.DataFrame(
   )
 )
 
+## we using the pd.dataframe() constructor to generate these DataFrame
+
+## creating index in the dataframe
+
+print(
+    pd.DataFrame(
+        {
+            'Title':['My name is steve'],
+            'work':['My work is QA']
+        },
+        index=['Product A:', 'Product B:']
+    )
+)
+
+## Series --> a series by contrast is a sequence of data value
+
+print(pd.Series([1,3,2,3]))
+
+
+
+
+
 
 
 
