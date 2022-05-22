@@ -159,7 +159,23 @@ print(review.points.mean())
 
 print(review.taster_name.unique())
 
+# Maps ---> this borrowed from maths, its like micro function, it will us to take one set of values from
+# maps to another set of values
 
+review_points_mean = review.points.mean()
+print(review.points.map(lambda p: p - review_points_mean))
+
+# "apply()" is also work as map function
+
+def remean_points(row):
+    row.points = row.points - review_points_mean
+    return row
+
+review.apply(remean_points,axis='columns')
+
+# head --> is used to show the value of the whole row ,
+
+print(review.head(10))
 
 
 
