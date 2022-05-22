@@ -141,10 +141,25 @@ print(top_oceania_wines)
 # summary function
 #Pandas provides many simple "summary functions"
 # (not an official name) which restructure the data in some useful way.
-# For example, consider the describe() method:
+# For example, consider the describe() method: will help us to view all the basic details
+# count         103727
+# unique            19
+# top       Roger Voss
+# freq           25514
+# Name: taster_name, dtype: object
 
 
 print(review.points.describe())
+
+# we can also view only particular summary of the dataframe
+
+print(review.points.mean())
+
+# "unique()" function can help us to view the unique list of values in dataframe
+
+print(review.taster_name.unique())
+
+
 
 
 
